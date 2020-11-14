@@ -1,5 +1,5 @@
 (function () {
-  // http://stackoverflow.com/questions/10906734/how-to-upload-image-into-html5-canvas
+  // https://stackoverflow.com/questions/10906734/how-to-upload-image-into-html5-canvas
   var original;
   var imageLoader = document.querySelector('#imageLoader');
   imageLoader.addEventListener('change', handleImage, false);

@@ -2,11 +2,20 @@
 <html lang="en">
   <head>
     <title>Web Workers example</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="http://fonts.googleapis.com/css?family=Slabo+27px"
-      rel="stylesheet"
-      type="text/css"
+      href="https://fonts.googleapis.com/css2?family=Slabo+27px&display=swap"
+      rel="preload"
+      as="style"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Slabo+27px&display=swap"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
+    />
+
     <link rel="stylesheet" href="css/styles.css" />
     <script src="scripts/imageManips.js"></script>
   </head>
@@ -14,16 +23,24 @@
     <p class="header">
       <img
         class="udacity"
-        src="http://udacity.github.io/60fps/images/udacity_logo.svg"
+        src="https://udacity.github.io/60fps/images/udacity_logo.svg"
         alt="Udacity Logo"
-      /><a href="http://udacity.com/ud860" target="_blank">60FPS</a> quiz by
-      <a href="http://twitter.com/cwpittman" target="_blank">Cameron Pittman</a>
+      />
+
+      <a href="https://udacity.com/ud860" target="_blank">60FPS</a>
+
+      quiz by
+
+      <a href="https://twitter.com/cwpittman" target="_blank">
+        Cameron Pittman
+      </a>
     </p>
 
     <div class="container">
       <div class="half" id="time-animation">
         <h2>Jank Timer</h2>
       </div>
+
       <div class="half" id="image-manipulator">
         <h2>Image Manipulator</h2>
         <input type="file" id="imageLoader" name="imageLoader" />
