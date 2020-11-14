@@ -1,4 +1,4 @@
-(function(){
+(function () {
   // http://stackoverflow.com/questions/10906734/how-to-upload-image-into-html5-canvas
   var original;
   var imageLoader = document.querySelector('#imageLoader');
@@ -6,18 +6,18 @@
   var canvas = document.querySelector('#image');
   var ctx = canvas.getContext('2d');
 
-  function handleImage(e){
+  function handleImage(e) {
     var reader = new FileReader();
-    reader.onload = function(event){
+    reader.onload = function (event) {
       var img = new Image();
-      img.onload = function(){
+      img.onload = function () {
         canvas.width = img.width;
         canvas.height = img.height;
-        ctx.drawImage(img,0,0);
+        ctx.drawImage(img, 0, 0);
         original = ctx.getImageData(0, 0, canvas.width, canvas.height);
-      }
+      };
       img.src = event.target.result;
-    }
+    };
     reader.readAsDataURL(e.target.files[0]);
   }
 
@@ -27,11 +27,11 @@
     var buttons = document.querySelectorAll('button');
     for (var i = 0; i < buttons.length; i++) {
       if (buttons[i].hasAttribute('disabled')) {
-        buttons[i].removeAttribute('disabled')
+        buttons[i].removeAttribute('disabled');
       } else {
         buttons[i].setAttribute('disabled', null);
       }
-    };
+    }
   }
 
   function manipulateImage(type) {
@@ -44,7 +44,11 @@
     // receive messages from the web worker.
 
     length = imageData.data.length / 4;
-    for (i = j = 0, ref = length; 0 <= ref ? j <= ref : j >= ref; i = 0 <= ref ? ++j : --j) {
+    for (
+      i = j = 0, ref = length;
+      0 <= ref ? j <= ref : j >= ref;
+      i = 0 <= ref ? ++j : --j
+    ) {
       r = imageData.data[i * 4 + 0];
       g = imageData.data[i * 4 + 1];
       b = imageData.data[i * 4 + 2];
@@ -57,25 +61,25 @@
     }
     toggleButtonsAbledness();
     return ctx.putImageData(imageData, 0, 0);
-  };
+  }
 
   function revertImage() {
     return ctx.putImageData(original, 0, 0);
   }
 
-  document.querySelector('#invert').onclick = function() {
-    manipulateImage("invert");
+  document.querySelector('#invert').onclick = function () {
+    manipulateImage('invert');
   };
-  document.querySelector('#chroma').onclick = function() {
-    manipulateImage("chroma");
+  document.querySelector('#chroma').onclick = function () {
+    manipulateImage('chroma');
   };
-  document.querySelector('#greyscale').onclick = function() {
-    manipulateImage("greyscale");
+  document.querySelector('#greyscale').onclick = function () {
+    manipulateImage('greyscale');
   };
-  document.querySelector('#vibrant').onclick = function() {
-    manipulateImage("vibrant");
+  document.querySelector('#vibrant').onclick = function () {
+    manipulateImage('vibrant');
   };
-  document.querySelector('#revert').onclick = function() {
+  document.querySelector('#revert').onclick = function () {
     revertImage();
   };
 })();

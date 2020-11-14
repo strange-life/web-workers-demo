@@ -29,11 +29,11 @@ img.udacity {
 }
 .box {
   display: inline-block;
-  border: solid 1px black;  
+  border: solid 1px black;
   margin: 10px;
   height: 30px;
   padding: 5px;
-  background-color: #DDD;
+  background-color: #ddd;
 }
 #image {
   width: 100%;
