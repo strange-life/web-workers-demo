@@ -3,6 +3,7 @@ importScripts('imageManips.js');
 this.onmessage = function (e) {
   var imageData = e.data.imageData;
   var type = e.data.type;
+  var a, b, g, i, j, length, pixel, r, ref;
 
   try {
     length = imageData.data.length / 4;
